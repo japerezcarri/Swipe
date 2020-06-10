@@ -1,17 +1,21 @@
-const express= require('express');
-const app=express();
-//declaracion cors
-const cors=require('cors');
-//variable de rutas a ejecutar
-const usuarioRutas= require('./rutas/usuarioRutas');
-const cancionRutas= require('./rutas/cancionRutas');
+const express = require('express');
+const app = express();
+
+// Declaración de cors
+const cors = require('cors');
+
+// Declaración de la constante delas rutas de usuarios
+const usuarioRutas = require('./rutas/usuarioRutas');
 
 
-//MIDLEWARES
+// -- MIDDLEWARES --
 app.use(express.json());
 app.use(cors());
-//consumo de rutas
-app.use('/api',usuarioRutas);
-app.use('/api',cancionRutas);
 
-module.exports=app;
+// Consumo de rutas
+app.use('/api', usuarioRutas)
+
+// --FIN MIDDLEWARES --
+
+// Exportación del modulo
+module.exports = app;
